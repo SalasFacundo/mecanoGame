@@ -1,0 +1,10 @@
+<div class="component">
+  <div class="container">
+    <app-data-bar [scoreChange]="score" [lifesChange]="lifes"></app-data-bar>
+    <app-screen [word]="word" [progress]="progress"></app-screen>
+    <input class="text" type="text" name="" id="" (keyup)="wordTipped($event, inputWord)" #inputWord autofocus>
+  </div>
+  <game-over-modal (playAgainChange)="onPlayAgainChange($event)" #gameOverModal></game-over-modal>
+</div>
+
+

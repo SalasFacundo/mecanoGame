@@ -1,0 +1,20 @@
+.component {
+  display: flex;
+  justify-content: space-between;
+  width: 444px;
+
+  .score {
+    color: rgb(244, 177, 53);
+    width: auto;
+  }
+  .lifes {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

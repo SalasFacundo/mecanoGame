@@ -1,0 +1,10 @@
+<div *ngIf="visible" class="screen">
+  <div class="component">
+    <div class="title">GAME OVER</div>
+    <div class="subtitle">¿Play Again?</div>
+    <div class="buttons">
+      <button class="btn btn-primary" id="cpu" (click)="onClickButton(true)">Yes</button>
+      <button class="btn btn-primary" id="player" (click)="onClickButton(false)">No</button>
+    </div>
+  </div>
+</div>

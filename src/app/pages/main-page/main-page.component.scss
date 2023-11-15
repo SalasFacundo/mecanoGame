@@ -1,0 +1,40 @@
+.component{
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(25, 42, 50);
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+}
+
+.text{
+  margin-top: 30px;
+  padding: 30px;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 8px 16px;
+  outline: none;
+  border-style: none;
+  letter-spacing: 5px;
+  text-align: center;
+  background-color: rgb(168, 190, 201);
+  font-weight: bold;
+}
+
+game-over-modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+app-progress-bar{
+  width: 100%;
+}
