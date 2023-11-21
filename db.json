@@ -1,0 +1,52 @@
+{
+  "persons": [
+    {
+      "id": 1,
+      "name": "Facuu",
+      "score": 4000,
+      "date": "15/11/2023"
+    },
+    {
+      "id": 2,
+      "name": "prueba",
+      "score": 0,
+      "date": "15/11/2023"
+    },
+    {
+      "id": 3,
+      "name": "asd",
+      "score": 0,
+      "date": "15/11/2023"
+    },
+    {
+      "id": 4,
+      "name": "fff",
+      "score": 0,
+      "date": "15/11/2023"
+    },
+    {
+      "id": 5,
+      "name": "asd",
+      "score": 0,
+      "date": "15/11/2023"
+    },
+    {
+      "id": 6,
+      "name": "fff",
+      "score": 0,
+      "date": "15/11/2023"
+    },
+    {
+      "id": 7,
+      "name": "fff",
+      "score": 0,
+      "date": "15/11/2023"
+    },
+    {
+      "id": 8,
+      "name": "facuu3",
+      "score": 300,
+      "date": "15/11/2023"
+    }
+  ]
+}

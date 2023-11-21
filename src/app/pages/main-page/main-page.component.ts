@@ -2,6 +2,7 @@ import { Component, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } fr
 import { interval, Subscription } from 'rxjs';
 import { GameOverModalComponent } from 'src/app/components/modals/game-over-modal/game-over-modal.component';
 import { ScreenComponent } from 'src/app/components/screen/screen.component';
+import { WordsServiceService } from 'src/app/services/words-service.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class MainPageComponent implements OnInit {
   word : string = "";
   score : number = 0;
   lifes: number = 3;
-  totalSeconds = 5;
+  totalSeconds = 10;
   progress = 0;
   wordArray: string[] = [];
 
@@ -29,7 +30,7 @@ export class MainPageComponent implements OnInit {
   @ViewChild('gameOverModal')
   gameOverModal!: GameOverModalComponent;
 
-  constructor() { }
+  constructor( private wordsServiceService: WordsServiceService) { }
 
   ngOnInit(): void {
     this.getNewWord();
@@ -42,7 +43,7 @@ export class MainPageComponent implements OnInit {
 
     if(tippedWord != this.word.substring(0, tippedWord.length)){
       if(this.lifes == 0){
-        this.gameOverModal.turnOn();
+        this.gameOverModal.turnOn(this.score);
       } else{
           this.lifes--;
           input.value="";
@@ -65,15 +66,17 @@ export class MainPageComponent implements OnInit {
   }
 
   startTimer(): void {
-    const interval$ = interval(300);
+    const interval$ = interval(250);
     this.timerSubscription = interval$.subscribe((second) => {
     this.progress = (second / this.totalSeconds) * 100;
       if (second >= this.totalSeconds+1) {
         if(this.lifes == 0){
-          this.gameOverModal.turnOn();
+          this.gameOverModal.turnOn(this.score);
         } else {
-          this.lifes--;
-          this.getNewWord();
+          setTimeout(() => {
+            this.lifes--;
+            this.getNewWord();
+          }, 2000);
         }
         this.unsubscribeTimer();
       }
@@ -93,20 +96,11 @@ export class MainPageComponent implements OnInit {
   }
 
   getNewWord(){
-    this.getRandomWord().then(word => {
-      this.word = word;
-      this.restartTimer();
-    });
-  }
 
-  getRandomWord(): Promise<string> {
-    return fetch("https://random-word-api.herokuapp.com/word?lang=es")
-      .then(response => response.json())
-      .then(data => {
-        const word = this.quitarAcentos(data[0].toUpperCase());
-        this.wordArray = word.split("");
-        return word;
-      });
+    this.wordsServiceService.getRandomWord().subscribe(response =>{
+      this.word = this.quitarAcentos(response).toUpperCase();
+      this.restartTimer();
+    })
   }
 
   quitarAcentos(cadena: string): string {

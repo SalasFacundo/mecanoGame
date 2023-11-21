@@ -8,6 +8,12 @@ import { ScreenComponent } from './components/screen/screen.component';
 import { DataBarComponent } from './components/data-bar/data-bar.component';
 import { GameOverModalComponent } from './components/modals/game-over-modal/game-over-modal.component';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { HttpClientModule } from '@angular/common/http';
+import {MatInputModule} from '@angular/material/input';
+import { ScoreListComponent } from './components/score-list/score-list.component';
+import {MatTableModule} from '@angular/material/table';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -16,12 +22,18 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MainPageComponent,
     ScreenComponent,
     DataBarComponent,
-    GameOverModalComponent
+    GameOverModalComponent,
+    ScoreListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    HttpClientModule,
+    MatInputModule,
+    MatTableModule,
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,5 +6,18 @@
       <button class="btn btn-primary" id="cpu" (click)="onClickButton(true)">Yes</button>
       <button class="btn btn-primary" id="player" (click)="onClickButton(false)">No</button>
     </div>
+    <div class="record">
+      <button class="btn btn-primary" (click)="onClickSaveScore()">Guardar puntuacion</button>
+      <button class="btn btn-primary" [routerLink]="['/scores']">Ver puntuaciones</button>
+    </div>
+
+    <div *ngIf="entryNameVisible">
+      <mat-form-field class="example-full-width my-form-field">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="name">
+      </mat-form-field>
+      <button class=" btn btn-primary" id="sendButton" (click)="agregar()">Enviar</button>
+    </div>
+
   </div>
 </div>

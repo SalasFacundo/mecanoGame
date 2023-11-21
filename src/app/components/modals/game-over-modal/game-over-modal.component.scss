@@ -11,8 +11,9 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  position: relative;
   width: auto;
-  padding: 60px;
+  padding: 40px;
   background-color: rgb(30, 54, 64);
   border-radius: 10px 10px 10px 10px;
 
@@ -40,6 +41,13 @@
     margin-top: 60px;
     gap: 60px;
   }
+
+  .record{
+    display: flex;
+    align-items: end;
+    margin-top: 60px;
+    gap: 15px;
+  }
 }
 
 button{
@@ -64,4 +72,41 @@ button{
 
 #player{
   color: rgb(242, 178, 55);
+}
+
+#inputName{
+  background-color: grey;
+}
+
+#sendButton{
+  font-size: 12px;
+  width: auto;
+  margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+::ng-deep .mat-focused .mat-form-field-label {
+  color: rgb(160, 16, 16) !important;
+}
+
+::ng-deep.mat-form-field-underline, ::ng-deep.mat-form-field-ripple {
+  background-color: white!important;}
+
+.my-form-field ::ng-deep .mat-form-field-label,
+.my-form-field ::ng-deep .mat-form-field-placeholder {
+  color: white !important;
+}
+
+.my-form-field{
+  margin-top: 15px;
+  color: white;
 }
