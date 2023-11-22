@@ -22,8 +22,8 @@ export class MainPageComponent implements OnInit {
 
   private timerSubscription: Subscription | undefined;
 
-  @ViewChild('myInput', { static: false })
-  myInput!: ElementRef;
+  @ViewChild('inputWord', { static: false })
+  inputWord!: ElementRef;
 
   @ViewChild('screen')
   screenComponent!: ScreenComponent;
@@ -63,7 +63,11 @@ export class MainPageComponent implements OnInit {
       this.score = 0;
       this.getNewWord();
       this.lifes = 3;
-      this.myInput.nativeElement.focus();
+      if(this.inputWord && this.inputWord.nativeElement){
+        this.inputWord.nativeElement.value = "";
+        this.inputWord.nativeElement.focus();
+      }
+      this.restartTimer();
     }
   }
 
