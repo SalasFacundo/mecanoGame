@@ -14,8 +14,9 @@ export class MainPageComponent implements OnInit {
 
   word : string = "";
   score : number = 0;
+  scorePlus : number = 0;
   lifes: number = 3;
-  totalSeconds = 10;
+  totalSeconds = 100;
   progress = 0;
   wordArray: string[] = [];
 
@@ -34,7 +35,6 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getNewWord();
-    this.startTimer();
   }
 
   wordTipped(event: any, input: any){
@@ -48,11 +48,13 @@ export class MainPageComponent implements OnInit {
           this.lifes--;
           input.value="";
           this.getNewWord();
+          this.restartTimer();
       }
     } else if(tippedWord.length == this.word.length) {
         input.value="";
-        this.score += 100;
+        this.score += this.scorePlus;
         this.getNewWord();
+        this.restartTimer();
     }
   }
 
@@ -76,6 +78,7 @@ export class MainPageComponent implements OnInit {
           setTimeout(() => {
             this.lifes--;
             this.getNewWord();
+            this.restartTimer();
           }, 2000);
         }
         this.unsubscribeTimer();
@@ -99,11 +102,30 @@ export class MainPageComponent implements OnInit {
 
     this.wordsServiceService.getRandomWord().subscribe(response =>{
       this.word = this.quitarAcentos(response).toUpperCase();
-      this.restartTimer();
+      //this.restartTimer();
     })
   }
 
   quitarAcentos(cadena: string): string {
     return cadena.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+
+  onDifficultChange(event: any){
+    switch (event) {
+      case "easy":
+        this.totalSeconds = 100;
+        this.scorePlus = 10;
+      break;
+      case "medium":
+        this.totalSeconds = 50;
+        this.scorePlus = 50;
+      break;
+      case "hard":
+        this.totalSeconds = 10;
+        this.scorePlus = 100;
+      break;
+      default:
+        break;
+    }
   }
 }

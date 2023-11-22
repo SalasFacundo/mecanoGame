@@ -35,6 +35,15 @@ game-over-modal{
   width: 100%;
 }
 
+start-game-modal{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+
 app-progress-bar{
   width: 100%;
 }

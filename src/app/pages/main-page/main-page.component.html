@@ -4,6 +4,7 @@
     <app-screen [word]="word" [progress]="progress"></app-screen>
     <input class="text" type="text" name="" id="" (keyup)="wordTipped($event, inputWord)" #inputWord autofocus>
   </div>
+  <start-game-modal (difficultChange)="onDifficultChange($event)"></start-game-modal>
   <game-over-modal (playAgainChange)="onPlayAgainChange($event)" #gameOverModal></game-over-modal>
 </div>
 

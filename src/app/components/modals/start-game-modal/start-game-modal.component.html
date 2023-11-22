@@ -1,0 +1,11 @@
+<div *ngIf="visible" class="screen">
+  <div class="component">
+    <div class="title">Start game</div>
+    <div class="subtitle">Chose difficult</div>
+    <div class="buttons">
+      <button class="btn btn-primary" id="cpu" (click)="setDifficult('easy')">Easy</button>
+      <button class="btn btn-primary" id="player" (click)="setDifficult('medium')">Medium</button>
+      <button class="btn btn-primary" id="cpu" (click)="setDifficult('hard')">Hard</button>
+    </div>
+  </div>
+</div>

@@ -14,6 +14,7 @@ import { ScoreListComponent } from './components/score-list/score-list.component
 import {MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StartGameModalComponent } from './components/modals/start-game-modal/start-game-modal.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ScreenComponent,
     DataBarComponent,
     GameOverModalComponent,
-    ScoreListComponent
+    ScoreListComponent,
+    StartGameModalComponent
   ],
   imports: [
     BrowserModule,
