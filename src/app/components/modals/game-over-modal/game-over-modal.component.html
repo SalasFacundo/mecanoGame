@@ -1,23 +1,11 @@
 <div *ngIf="visible" class="screen">
   <div class="component">
     <div class="title">GAME OVER</div>
-    <div class="subtitle">¿Play Again?</div>
+    <div class="subtitle">Your score is: {{score}}</div>
+    <div class="title mt-5">¿Play Again?</div>
     <div class="buttons">
-      <button class="btn btn-primary" id="cpu" (click)="onClickButton(true)">Yes</button>
-      <button class="btn btn-primary" id="player" (click)="onClickButton(false)">No</button>
+      <button class="btn btn-primary" (click)="onClickButton(true)">Yes</button>
+      <button class="btn btn-primary"  (click)="onClickButton(true)">No</button>
     </div>
-    <div class="record">
-      <button class="btn btn-primary" (click)="onClickSaveScore()">Guardar puntuacion</button>
-      <button class="btn btn-primary" [routerLink]="['/scores']">Ver puntuaciones</button>
-    </div>
-
-    <div *ngIf="entryNameVisible">
-      <mat-form-field class="example-full-width my-form-field">
-        <mat-label>Name</mat-label>
-        <input matInput [(ngModel)]="name">
-      </mat-form-field>
-      <button class=" btn btn-primary" id="sendButton" (click)="agregar()">Enviar</button>
-    </div>
-
   </div>
 </div>

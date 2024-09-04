@@ -10,7 +10,6 @@ import { GameOverModalComponent } from './components/modals/game-over-modal/game
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { HttpClientModule } from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
-import { ScoreListComponent } from './components/score-list/score-list.component';
 import {MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,7 +23,6 @@ import { StartGameModalComponent } from './components/modals/start-game-modal/st
     ScreenComponent,
     DataBarComponent,
     GameOverModalComponent,
-    ScoreListComponent,
     StartGameModalComponent
   ],
   imports: [

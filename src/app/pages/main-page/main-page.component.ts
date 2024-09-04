@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
 import { GameOverModalComponent } from 'src/app/components/modals/game-over-modal/game-over-modal.component';
+import { StartGameModalComponent } from 'src/app/components/modals/start-game-modal/start-game-modal.component';
 import { ScreenComponent } from 'src/app/components/screen/screen.component';
 import { WordsServiceService } from 'src/app/services/words-service.service';
 
@@ -12,6 +13,18 @@ import { WordsServiceService } from 'src/app/services/words-service.service';
 })
 export class MainPageComponent implements OnInit {
 
+  @ViewChild('inputWord', { static: false })
+  inputWord!: ElementRef;
+
+  @ViewChild('screen')
+  screenComponent!: ScreenComponent;
+
+  @ViewChild('gameOverModal')
+  gameOverModal!: GameOverModalComponent;
+
+  @ViewChild('startModal')
+  startModal!: StartGameModalComponent;
+
   word : string = "";
   score : number = 0;
   scorePlus : number = 0;
@@ -22,14 +35,6 @@ export class MainPageComponent implements OnInit {
 
   private timerSubscription: Subscription | undefined;
 
-  @ViewChild('inputWord', { static: false })
-  inputWord!: ElementRef;
-
-  @ViewChild('screen')
-  screenComponent!: ScreenComponent;
-
-  @ViewChild('gameOverModal')
-  gameOverModal!: GameOverModalComponent;
 
   constructor( private wordsServiceService: WordsServiceService) { }
 
@@ -60,14 +65,7 @@ export class MainPageComponent implements OnInit {
 
   onPlayAgainChange(event: any){
     if(event){
-      this.score = 0;
-      this.getNewWord();
-      this.lifes = 3;
-      if(this.inputWord && this.inputWord.nativeElement){
-        this.inputWord.nativeElement.value = "";
-        this.inputWord.nativeElement.focus();
-      }
-      this.restartTimer();
+      this.startModal.setVisibleOn();
     }
   }
 
@@ -115,6 +113,16 @@ export class MainPageComponent implements OnInit {
   }
 
   onDifficultChange(event: any){
+
+    this.score = 0;
+      this.getNewWord();
+      this.lifes = 3;
+      if(this.inputWord && this.inputWord.nativeElement){
+        this.inputWord.nativeElement.value = "";
+        this.inputWord.nativeElement.focus();
+      }
+      this.restartTimer();
+
     switch (event) {
       case "easy":
         this.totalSeconds = 100;

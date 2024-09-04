@@ -35,13 +35,4 @@ export class GameOverModalComponent implements OnInit {
   turnOff(){
     this.visible = false;
   }
-
-  onClickSaveScore(){
-    this.entryNameVisible = true;
-  }
-
-  agregar(){
-    const currentDate = "2023-11-22";
-    this.scoreService.createScore({"id": 0, "name": this.name, "score":this.score, "date": currentDate}).subscribe(response => {console.log(response)})
-  }
 }
