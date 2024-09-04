@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Person } from 'src/app/models/person.model';
-import { PersonService } from 'src/app/services/person.service';
+import { Score } from 'src/app/models/score.model';
+import { ScoreService } from 'src/app/services/score-service.service';
 
 
 @Component({
@@ -11,15 +11,14 @@ import { PersonService } from 'src/app/services/person.service';
 export class ScoreListComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource!: Person[];
+  dataSource!: Score[];
 
 
-  constructor(private personService: PersonService) { }
+  constructor(private scoreService: ScoreService) { }
 
   ngOnInit(): void {
-    this.personService.getPersons().subscribe((persons: Person[]) => {
-      this.dataSource = persons
-        .sort((a, b) => b.score - a.score)
+    this.scoreService.getScores().subscribe((scores: any) => {
+      this.dataSource = scores.scores.sort((a:any, b:any) => b.score - a.score)
         .slice(0, 20);
     });
   }

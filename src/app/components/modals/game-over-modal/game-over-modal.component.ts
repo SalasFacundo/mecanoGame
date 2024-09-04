@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { PersonService } from 'src/app/services/person.service';
+import { ScoreService } from 'src/app/services/score-service.service';
 
 @Component({
   selector: 'game-over-modal',
@@ -17,7 +17,7 @@ export class GameOverModalComponent implements OnInit {
   score: number =0;
 
 
-  constructor(private personService: PersonService) { }
+  constructor(private scoreService: ScoreService) { }
 
   ngOnInit(): void {
   }
@@ -41,13 +41,7 @@ export class GameOverModalComponent implements OnInit {
   }
 
   agregar(){
-    const currentDate = new Date();
-
-    const formattedDate =
-    currentDate.getDate().toString().padStart(2, '0') + '/' +
-    (currentDate.getMonth() + 1).toString().padStart(2, '0') + '/' +
-    currentDate.getFullYear();
-
-    this.personService.addPerson({"id": 0, "name": this.name, "score":this.score, "date": formattedDate}).subscribe(response => {console.log(response)})
+    const currentDate = "2023-11-22";
+    this.scoreService.createScore({"id": 0, "name": this.name, "score":this.score, "date": currentDate}).subscribe(response => {console.log(response)})
   }
 }
