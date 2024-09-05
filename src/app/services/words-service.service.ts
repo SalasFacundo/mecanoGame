@@ -15,8 +15,6 @@ export class WordsServiceService {
       map((data) => {
         const words = data.palabras;
         const randomIndex = Math.floor(Math.random() * words.length);
-        console.log("SERVICIO: ")
-        console.log(words[randomIndex])
         return words[randomIndex];
       }),
       catchError((error) => {

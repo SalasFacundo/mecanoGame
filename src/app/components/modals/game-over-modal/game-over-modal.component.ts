@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ScoreService } from 'src/app/services/score-service.service';
 
 @Component({
   selector: 'game-over-modal',
@@ -17,7 +16,7 @@ export class GameOverModalComponent implements OnInit {
   score: number =0;
 
 
-  constructor(private scoreService: ScoreService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
